@@ -1,9 +1,13 @@
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { gameScore } from "./atoms";
+
+import { paperSize } from "./Selectors";
 
 const Game = () => {
   const [score, setScore] = useRecoilState(gameScore);
+
+  const size = useRecoilValue(paperSize);
 
   const handlerClick = () => {
     setScore(score + 1);
@@ -14,7 +18,7 @@ const Game = () => {
       <button
         onClick={handlerClick}
         style={{
-          fontSize: "100px",
+          fontSize: size,
           border: 0,
           background: "transparent",
           outline: 0,

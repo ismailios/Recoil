@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { gameScore } from "./atoms";
+import { gameScore, UseResetScore } from "./atoms";
 
 import { paperSize } from "./Selectors";
 
@@ -12,6 +12,7 @@ const Game = () => {
   const handlerClick = () => {
     setScore(score + 1);
   };
+  const resetScore = UseResetScore();
 
   return (
     <div>
@@ -26,6 +27,7 @@ const Game = () => {
       >
         🧻
       </button>
+      <button onClick={resetScore}>Reset</button>
     </div>
   );
 };
